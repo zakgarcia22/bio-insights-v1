@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioInsights | The Clinical Operating System for Root-Cause Medicine</title>
+  <meta name="description" content="The only all-in-one platform that lets any provider deliver personalized, root-cause care from day one. Patient-Scoped AI. 300+ protocols. Integrated fulfillment.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: {
+            bio: {
+              50: '#eef4ff',
+              100: '#c7dcf8',
+              200: '#a3c4f0',
+              300: '#6b9de6',
+              400: '#3d7dd9',
+              500: '#136de2',
+              600: '#0f5abf',
+              700: '#0c4899',
+              800: '#2f4460',
+              900: '#0a1628',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .gradient-hero { background: linear-gradient(135deg, #0a1628 0%, #0c4899 50%, #136de2 100%); }
+    .gradient-dark { background: linear-gradient(180deg, #0a1628 0%, #1a2744 100%); }
+    .gradient-light { background: linear-gradient(180deg, #f8faff 0%, #eef4ff 100%); }
+    .trust-layer { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .trust-layer:hover { transform: translateX(8px); box-shadow: 0 4px 20px rgba(19, 109, 226, 0.15); }
+    .stat-card { transition: transform 0.3s ease; }
+    .stat-card:hover { transform: translateY(-4px); }
+    .nav-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    .float-animation { animation: float 6s ease-in-out infinite; }
+    .bar-animate { transition: width 1.5s ease-out; }
+  </style>
+</head>
+<body class="font-poppins text-gray-800 antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 nav-blur bg-white/90 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 md:h-20">
+        <a href="#" class="flex items-center space-x-2">
+          <img src="assets/logo.png" alt="BioInsights" class="h-8 md:h-10">
+        </a>
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="#platform" class="text-sm font-medium text-gray-600 hover:text-bio-500 transition">Platform</a>
+          <a href="#ai-trust" class="text-sm font-medium text-gray-600 hover:text-bio-500 transition">AI & Trust</a>
+          <a href="#results" class="text-sm font-medium text-gray-600 hover:text-bio-500 transition">Results</a>
+          <a href="#thought-leaders" class="text-sm font-medium text-gray-600 hover:text-bio-500 transition">For Thought Leaders</a>
+          <a href="#pricing" class="text-sm font-medium text-gray-600 hover:text-bio-500 transition">Pricing</a>
+          <a href="#about" class="text-sm font-medium text-gray-600 hover:text-bio-500 transition">About</a>
+          <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+             class="bg-bio-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-bio-600 transition shadow-lg shadow-bio-500/25">
+            Book a Demo
+          </a>
+        </div>
+        <!-- Mobile menu button -->
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
+      <a href="#platform" class="block py-2 text-sm text-gray-600">Platform</a>
+      <a href="#ai-trust" class="block py-2 text-sm text-gray-600">AI & Trust</a>
+      <a href="#results" class="block py-2 text-sm text-gray-600">Results</a>
+      <a href="#thought-leaders" class="block py-2 text-sm text-gray-600">For Thought Leaders</a>
+      <a href="#pricing" class="block py-2 text-sm text-gray-600">Pricing</a>
+      <a href="#about" class="block py-2 text-sm text-gray-600">About</a>
+      <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+         class="block mt-2 bg-bio-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold text-center">Book a Demo</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="gradient-hero min-h-screen flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+            <span class="text-white/80 text-xs font-medium tracking-wide">HIPAA COMPLIANT &middot; SOC 2 &middot; BAA AVAILABLE</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Think Faster.<br>
+            Treat Smarter.<br>
+            <span class="text-bio-200">Scale with Confidence.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-blue-100/80 mb-4 font-light max-w-xl">
+            The Clinical Operating System for Root-Cause Medicine&trade;
+          </p>
+          <p class="text-base text-blue-200/60 mb-8 max-w-lg">
+            The only all-in-one platform that lets any provider deliver personalized, root-cause care from day one -- without years of retraining.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+               class="bg-white text-bio-700 px-8 py-3.5 rounded-full font-semibold text-center hover:bg-blue-50 transition shadow-xl">
+              Book a Demo
+            </a>
+            <a href="#platform"
+               class="border border-white/30 text-white px-8 py-3.5 rounded-full font-semibold text-center hover:bg-white/10 transition">
+              See How It Works
+            </a>
+          </div>
+          <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
+            <div>
+              <div class="text-2xl font-bold text-white">30+</div>
+              <div class="text-xs text-blue-200/60">Providers</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white">10,000+</div>
+              <div class="text-xs text-blue-200/60">Patients Served</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-white">300+</div>
+              <div class="text-xs text-blue-200/60">Treatment Protocols</div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:flex justify-center">
+          <div class="relative">
+            <!-- Abstract platform visualization -->
+            <div class="w-96 h-96 relative float-animation">
+              <div class="absolute inset-0 bg-gradient-to-br from-bio-400/20 to-bio-600/20 rounded-3xl border border-white/10 backdrop-blur-sm p-8">
+                <div class="space-y-4">
+                  <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="w-8 h-8 rounded-full bg-green-400/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      </div>
+                      <span class="text-white/80 text-sm font-medium">PDI Analysis Complete</span>
+                    </div>
+                    <div class="text-xs text-blue-200/50">3 dysfunctions identified &middot; 12 protocols matched</div>
+                  </div>
+                  <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="w-8 h-8 rounded-full bg-bio-400/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-bio-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                      </div>
+                      <span class="text-white/80 text-sm font-medium">Clinical Notes</span>
+                    </div>
+                    <div class="text-xs text-blue-200/50">Generated in 90 seconds &middot; Provider voice preserved</div>
+                  </div>
+                  <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="w-8 h-8 rounded-full bg-purple-400/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                      </div>
+                      <span class="text-white/80 text-sm font-medium">Lab Fulfillment</span>
+                    </div>
+                    <div class="text-xs text-blue-200/50">700+ biomarkers &middot; Adherence packaging shipped</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statement -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-bio-900 mb-6">
+          Functional medicine is the future.<br>
+          <span class="text-bio-500">But three problems keep it from scaling.</span>
+        </h2>
+        <p class="text-gray-500 text-lg">The market is growing at 22% CAGR. Patients are demanding root-cause care. But providers face friction on every side.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-red-50 rounded-2xl p-8 border border-red-100">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Clinical Friction</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Years of specialized training required. Providers want to offer root-cause care but lack the diagnostic frameworks and protocol libraries to do it confidently.</p>
+        </div>
+        <div class="bg-amber-50 rounded-2xl p-8 border border-amber-100">
+          <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Operational Friction</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">8+ fragmented tools to manage. Separate systems for intake, labs, notes, prescribing, fulfillment, and telehealth. Nothing talks to anything else.</p>
+        </div>
+        <div class="bg-blue-50 rounded-2xl p-8 border border-blue-100">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Financial Friction</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">You can't scale what you can't systematize. Without integrated fulfillment and efficient workflows, the economics of root-cause care don't work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform -->
+  <section id="platform" class="py-20 md:py-28 gradient-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-bio-500 font-semibold text-sm tracking-wider uppercase mb-3">The Platform</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-bio-900 mb-6">One system. Every workflow. Zero fragmentation.</h2>
+        <p class="text-gray-500 text-lg">BioInsights replaces 8+ disconnected tools with a single clinical operating system. 70% of our providers came to us because they were drowning in fragmented tech.</p>
+      </div>
+
+      <!-- Three Pillars -->
+      <div class="grid lg:grid-cols-3 gap-8 mb-20">
+        <!-- Pillar 1: Root-Cause Engine -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-bio-50 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-bio-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Root-Cause Engine</h3>
+          <p class="text-gray-500 text-sm mb-6">Proprietary algorithms that prioritize dysfunction, not just track symptoms. The engine connects what patients feel to what's happening at the cellular level.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              24 functional body systems analyzed
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              500+ intake questions mapped to dysfunctions
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              700+ lab tests with optimal range analysis
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              300+ dysfunctions identified with probability scoring
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Precision Protocols -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Precision Protocols</h3>
+          <p class="text-gray-500 text-sm mb-6">300+ disease-specific treatment plans built by leading practitioners. Personalized care plans generated from PDI analysis, ready for provider review and customization.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Integrated pharmacy ordering and ePrescribing
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Adherence packaging and fulfillment
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Point-of-sale with configurable markups
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              White-label supplement programs
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Seamless Operations -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Seamless Operations</h3>
+          <p class="text-gray-500 text-sm mb-6">Telehealth, labs, supplement fulfillment, patient education, scheduling, and communication -- fully integrated. No EMR migration. No new hires. No inventory management.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Built-in telehealth and video visits
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              SMS/MMS, eFax, real-time transcription
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Calendar, booking, and payment processing
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              50+ integrated modules
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold text-center text-bio-900 mb-12">How It Works</h3>
+        <div class="grid md:grid-cols-5 gap-4 md:gap-2">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-bio-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">1</div>
+            <h4 class="font-semibold text-sm mb-1">Assess</h4>
+            <p class="text-xs text-gray-500">Comprehensive intake across 21 functional body systems</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-bio-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">2</div>
+            <h4 class="font-semibold text-sm mb-1">Analyze</h4>
+            <p class="text-xs text-gray-500">700+ biomarkers tested and mapped to optimal ranges</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-bio-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">3</div>
+            <h4 class="font-semibold text-sm mb-1">Diagnose</h4>
+            <p class="text-xs text-gray-500">PDI calculates dysfunction probabilities from combined data</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-bio-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">4</div>
+            <h4 class="font-semibold text-sm mb-1">Treat</h4>
+            <p class="text-xs text-gray-500">Personalized protocols from 300+ evidence-based plans</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-bio-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-lg font-bold">5</div>
+            <h4 class="font-semibold text-sm mb-1">Fulfill</h4>
+            <p class="text-xs text-gray-500">Supplements, labs, and prescriptions shipped and managed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI & Trust -->
+  <section id="ai-trust" class="py-20 md:py-28 gradient-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="text-bio-300 font-semibold text-sm tracking-wider uppercase mb-3">AI & Trust</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Patient-Scoped AI.<br>
+            <span class="text-bio-200">Not a Chatbot.</span>
+          </h2>
+          <p class="text-blue-100/70 text-lg mb-6">
+            Every "AI-powered" EMR flooding the market right now is using general-purpose AI that hallucinates, makes things up, and has no clinical guardrails.
+          </p>
+          <p class="text-blue-100/70 mb-6">
+            BioInsights is different. Our AI is <strong class="text-white">patient-scoped</strong> -- it never leaves the patient's chart. It uses only clinician-approved protocols, peer-reviewed evidence, and the provider's own clinical voice. It doesn't guess. It doesn't hallucinate. And the provider always has the final word.
+          </p>
+          <div class="bg-white/5 rounded-2xl p-6 border border-white/10 mb-6">
+            <h4 class="font-semibold text-white mb-3">AI-Powered Notes Compiler</h4>
+            <p class="text-blue-100/60 text-sm mb-4">Generate complete clinical progress notes in 90 seconds. The Notes Compiler uses multi-logic layers -- combining clinical templates, rules engines, and your provider voice -- grounded with evidence from peer-reviewed textbooks and journals.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-blue-100/80">Your voice, your style</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-blue-100/80">Evidence-grounded</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-blue-100/80">Human-in-the-loop</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Stack -->
+        <div>
+          <h3 class="text-xl font-bold mb-2">The Trust Stack&trade;</h3>
+          <p class="text-blue-100/60 text-sm mb-8">Five layers between AI and clinical output. Every layer is a guardrail. Nothing gets to the patient without passing through all five.</p>
+          <div class="space-y-3">
+            <div class="trust-layer bg-white/5 rounded-xl p-5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 bg-bio-500 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold">5</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Human Authority</h4>
+                <p class="text-blue-100/60 text-sm">The provider always has the final word. AI suggests. Humans decide. Every output goes through clinician review before reaching the patient.</p>
+              </div>
+            </div>
+            <div class="trust-layer bg-white/5 rounded-xl p-5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 bg-bio-500/80 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold">4</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Deterministic Rules Layer</h4>
+                <p class="text-blue-100/60 text-sm">Hard-coded clinical rules that override AI outputs. Contraindications, dosage limits, interaction checks. Rules always win.</p>
+              </div>
+            </div>
+            <div class="trust-layer bg-white/5 rounded-xl p-5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 bg-bio-500/60 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold">3</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Evidence Grounding</h4>
+                <p class="text-blue-100/60 text-sm">Every AI response is grounded in peer-reviewed textbooks, clinical journals, and established protocols via retrieval-augmented generation. No hallucination.</p>
+              </div>
+            </div>
+            <div class="trust-layer bg-white/5 rounded-xl p-5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 bg-bio-500/40 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold">2</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Clinician-Curated Inputs</h4>
+                <p class="text-blue-100/60 text-sm">AI only works with data and protocols that the provider has explicitly approved. No external data. No unauthorized sources.</p>
+              </div>
+            </div>
+            <div class="trust-layer bg-white/5 rounded-xl p-5 border border-white/10 flex items-start gap-4">
+              <div class="w-10 h-10 bg-bio-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold">1</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Patient Scope Boundary</h4>
+                <p class="text-blue-100/60 text-sm">AI is scoped to the individual patient chart. It cannot access other patients' data, external systems, or anything outside the clinical context.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDI Section -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center bg-bio-50 rounded-full px-4 py-1.5 mb-6">
+            <span class="text-bio-600 text-xs font-semibold tracking-wider uppercase">Patent Pending</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-bio-900 mb-6">
+            Predictive Dysfunction Index&trade;
+          </h2>
+          <p class="text-gray-500 text-lg mb-6">
+            The PDI is our data moat. It combines symptom analysis across 24 functional body systems with biomarker data from 700+ lab tests to calculate the probability of 300+ cellular dysfunctions.
+          </p>
+          <p class="text-gray-500 mb-6">
+            This isn't pattern matching. It's a proprietary algorithm using Bayesian updating, logistic regression, and multivariate interaction modeling to surface dysfunctions that would take a seasoned practitioner hours to identify manually.
+          </p>
+          <p class="text-gray-500 mb-8">
+            Each dysfunction links directly to evidence-based treatment protocols. The provider reviews, customizes, and approves. The platform handles the rest.
+          </p>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-bio-50 rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-bio-600">24</div>
+              <div class="text-xs text-gray-500 mt-1">Body Systems</div>
+            </div>
+            <div class="bg-bio-50 rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-bio-600">700+</div>
+              <div class="text-xs text-gray-500 mt-1">Lab Tests</div>
+            </div>
+            <div class="bg-bio-50 rounded-xl p-4 text-center">
+              <div class="text-2xl font-bold text-bio-600">300+</div>
+              <div class="text-xs text-gray-500 mt-1">Dysfunctions</div>
+            </div>
+          </div>
+        </div>
+        <!-- PDI Visualization -->
+        <div class="bg-gradient-to-br from-bio-50 to-blue-50 rounded-2xl p-8 border border-bio-100">
+          <h4 class="text-sm font-semibold text-bio-800 mb-6 uppercase tracking-wider">How PDI Works</h4>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-bio-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-medium text-gray-800">Patient Intake Data</div>
+                <div class="text-xs text-gray-500">500+ questions across medical history, symptoms, risk factors</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-5 h-5 text-bio-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-bio-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-medium text-gray-800">Biomarker Analysis</div>
+                <div class="text-xs text-gray-500">700+ lab tests compared against optimal (not just normal) ranges</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-5 h-5 text-bio-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-bio-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-medium text-gray-800">Dysfunction Probability</div>
+                <div class="text-xs text-gray-500">Bayesian + logistic regression models calculate dysfunction likelihood</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg class="w-5 h-5 text-bio-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-green-100 rounded-lg shadow-sm flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="text-sm font-medium text-gray-800">Matched Treatment Protocols</div>
+                <div class="text-xs text-gray-500">300+ evidence-based protocols linked to identified dysfunctions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="py-20 md:py-28 gradient-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-bio-500 font-semibold text-sm tracking-wider uppercase mb-3">Results</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-bio-900 mb-6">The numbers speak for themselves.</h2>
+      </div>
+
+      <!-- Time Comparison -->
+      <div class="max-w-3xl mx-auto mb-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold text-gray-900 mb-6">Time Per Patient Workflow</h3>
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm font-medium text-gray-500">Traditional Approach</span>
+              <span class="text-sm font-bold text-gray-900">1 hr 45 min</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-8">
+              <div class="bg-red-400 h-8 rounded-full flex items-center justify-end pr-3" style="width: 100%">
+                <span class="text-xs font-semibold text-white">105 min</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm font-medium text-bio-600">With BioInsights</span>
+              <span class="text-sm font-bold text-bio-600">10 min</span>
+            </div>
+            <div class="w-full bg-gray-100 rounded-full h-8">
+              <div class="bg-bio-500 h-8 rounded-full flex items-center justify-end pr-3" style="width: 9.5%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-sm text-gray-400 mt-4">90% reduction in time per patient encounter</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="text-4xl md:text-5xl font-bold text-bio-500 mb-2">790+</div>
+          <div class="text-sm text-gray-500 font-medium">Hours saved per provider per year</div>
+        </div>
+        <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="text-4xl md:text-5xl font-bold text-bio-500 mb-2">90s</div>
+          <div class="text-sm text-gray-500 font-medium">Clinical notes generated</div>
+        </div>
+        <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="text-4xl md:text-5xl font-bold text-bio-500 mb-2">30+</div>
+          <div class="text-sm text-gray-500 font-medium">Providers on the platform</div>
+        </div>
+        <div class="stat-card bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="text-4xl md:text-5xl font-bold text-bio-500 mb-2">10K+</div>
+          <div class="text-sm text-gray-500 font-medium">Patients served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-bio-500 font-semibold text-sm tracking-wider uppercase mb-3">From Our Providers</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-bio-900">What practitioners are saying.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-gray-600 text-sm mb-6 leading-relaxed">"The dysfunction analysis tool is a game-changer. I can identify root causes in minutes that used to take me an entire afternoon of cross-referencing labs and symptoms."</p>
+          <div class="border-t border-gray-200 pt-4">
+            <div class="font-semibold text-sm text-gray-900">Licensed Physician, M.D.</div>
+            <div class="text-xs text-gray-400">Functional Medicine Practice</div>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-gray-600 text-sm mb-6 leading-relaxed">"BioInsights has completely streamlined my practice. What used to require multiple platforms and hours of admin work now happens in one place. I actually have time to focus on my patients."</p>
+          <div class="border-t border-gray-200 pt-4">
+            <div class="font-semibold text-sm text-gray-900">Functional Medicine Practitioner</div>
+            <div class="text-xs text-gray-400">Integrative Wellness Center</div>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+          <div class="flex mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-gray-600 text-sm mb-6 leading-relaxed">"I now have the confidence and resources to create personalized plans that truly make an impact. The protocols library alone is worth it. The AI notes save me hours every week."</p>
+          <div class="border-t border-gray-200 pt-4">
+            <div class="font-semibold text-sm text-gray-900">Certified Health Coach</div>
+            <div class="text-xs text-gray-400">Private Practice</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Thought Leaders -->
+  <section id="thought-leaders" class="py-20 md:py-28 gradient-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-bio-300 font-semibold text-sm tracking-wider uppercase mb-3">For Thought Leaders</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Digitize Your Protocols.<br>
+            <span class="text-bio-200">License Your Expertise.</span>
+          </h2>
+          <p class="text-blue-100/70 text-lg mb-6">
+            You've spent decades developing clinical protocols that get results. What if those protocols could scale to hundreds of clinics without you seeing every patient?
+          </p>
+          <p class="text-blue-100/70 mb-8">
+            BioInsights lets established practitioners and thought leaders digitize their treatment protocols into licensable engines. Your methods. Your standards. Deployed across a growing network of providers who use them every day. You earn royalties on every protocol used.
+          </p>
+          <div class="bg-white/5 rounded-2xl p-6 border border-white/10 mb-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h4 class="font-semibold text-white">Case Study: The Minkoff Protocol Engine</h4>
+            </div>
+            <p class="text-blue-100/60 text-sm">Dr. David Minkoff's decades of clinical protocols -- digitized, structured, and deployed through BioInsights. His expertise now scales to clinics he'll never visit, while maintaining his clinical standards through the Trust Stack. Providers get access to protocols built on 40,000+ patient encounters.</p>
+          </div>
+          <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+             class="inline-flex items-center bg-white text-bio-700 px-8 py-3.5 rounded-full font-semibold hover:bg-blue-50 transition shadow-xl">
+            Learn About Protocol Licensing
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+        <div class="space-y-6">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-bio-500/20 rounded-lg flex items-center justify-center text-bio-300 font-bold text-sm">1</div>
+              <h4 class="font-semibold text-white">Capture</h4>
+            </div>
+            <p class="text-blue-100/60 text-sm">We work with you to digitize your clinical protocols, decision trees, and treatment frameworks into structured, programmable logic.</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-bio-500/20 rounded-lg flex items-center justify-center text-bio-300 font-bold text-sm">2</div>
+              <h4 class="font-semibold text-white">Integrate</h4>
+            </div>
+            <p class="text-blue-100/60 text-sm">Your protocols become a named engine inside BioInsights. Providers select your protocol set when treating relevant conditions. Your clinical guardrails are enforced automatically.</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-8 h-8 bg-bio-500/20 rounded-lg flex items-center justify-center text-bio-300 font-bold text-sm">3</div>
+              <h4 class="font-semibold text-white">Scale & Earn</h4>
+            </div>
+            <p class="text-blue-100/60 text-sm">Your expertise reaches providers and patients you'd never reach alone. You earn royalties on every protocol deployment. Your legacy scales without your calendar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="text-bio-500 font-semibold text-sm tracking-wider uppercase mb-3">Pricing</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-bio-900 mb-6">Plans for every practice.</h2>
+        <p class="text-gray-500 text-lg">Whether you're a health coach getting started or an established multi-provider practice, there's a tier built for you.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Coach Tier -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Coach</h3>
+          <p class="text-sm text-gray-500 mb-6">For health coaches entering functional medicine</p>
+          <div class="mb-6">
+            <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+               class="text-bio-500 font-semibold text-sm hover:underline">Get Custom Pricing &rarr;</a>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Patient intake and assessment
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Lab ordering and results analysis
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              PDI dysfunction mapping
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              20 treatment protocols
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Calendar, telehealth, SMS
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mid-Level Tier -->
+        <div class="bg-bio-900 rounded-2xl p-8 border-2 border-bio-500 text-white relative">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-bio-500 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</div>
+          <h3 class="text-xl font-bold mb-2">Mid-Level</h3>
+          <p class="text-sm text-blue-200/60 mb-6">For licensed practitioners scaling their practice</p>
+          <div class="mb-6">
+            <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+               class="text-bio-200 font-semibold text-sm hover:underline">Get Custom Pricing &rarr;</a>
+          </div>
+          <ul class="space-y-3 text-sm text-blue-100/80">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Everything in Coach, plus:
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              280+ treatment protocols
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              AI-powered clinical notes
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              ePrescribing
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Patient email notifications
+            </li>
+          </ul>
+        </div>
+
+        <!-- Diamond Tier -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Diamond</h3>
+          <p class="text-sm text-gray-500 mb-6">For established practices wanting the full platform</p>
+          <div class="mb-6">
+            <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+               class="text-bio-500 font-semibold text-sm hover:underline">Get Custom Pricing &rarr;</a>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Everything in Mid-Level, plus:
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Full protocol library (300+)
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Priority support and onboarding
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              White-label supplement programs
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Clinical mentorship access
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Compliance Add-on -->
+      <div class="max-w-3xl mx-auto mt-12 bg-bio-50 rounded-2xl p-8 border border-bio-100 text-center">
+        <h4 class="font-bold text-gray-900 mb-2">Medical Director Compliance Program</h4>
+        <p class="text-gray-500 text-sm mb-3">For health coaches who need physician oversight for lab orders and treatment plans</p>
+        <div class="text-3xl font-bold text-bio-600 mb-1">$750<span class="text-lg font-normal text-gray-400">/month</span></div>
+        <p class="text-xs text-gray-400">Optional add-on. Available on all tiers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Founder Story -->
+  <section id="about" class="py-20 md:py-28 gradient-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-bio-500 font-semibold text-sm tracking-wider uppercase mb-3">Our Story</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-bio-900 mb-8">Why I built this.</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              I started medical school at 29. Left three years later because I couldn't reconcile what I was learning with how patients were actually being treated. The system wasn't designed to find root causes. It was designed to manage symptoms.
+            </p>
+            <p>
+              I spent the next two decades building healthcare technology companies -- five in total. Bond Technologies. CareSync. Fern Health. Altoida. io-Urology. Each one taught me something about what breaks when you try to scale clinical care with software.
+            </p>
+            <p>
+              Then in 2018, our house caught fire. My wife needed lung transplants. Conventional medicine couldn't explain what was happening. Functional medicine did. The practitioners who looked at root causes found answers that no one else could.
+            </p>
+            <p>
+              That experience changed everything. I went back and finished my MD. Got my MBA at UCLA Anderson and NUS Business School. And started building the platform I wished had existed for the providers who saved my wife's life.
+            </p>
+            <p class="font-medium text-gray-800">
+              BioInsights exists to democratize root-cause medicine. To give every provider the tools, protocols, and AI-powered workflows to deliver the kind of care that saved my family -- without needing 20 years of specialized training to do it.
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-bio-100 rounded-full flex items-center justify-center">
+                <span class="text-bio-600 font-bold text-xl">TB</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Travis Bond, MD, MBA</h3>
+                <p class="text-sm text-gray-500">CEO & Founder</p>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-bio-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span class="text-sm text-gray-600">25 years in healthcare technology</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-bio-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                <span class="text-sm text-gray-600">5 companies founded and led</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-bio-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                <span class="text-sm text-gray-600">MD (USF Honors) + MBA (UCLA Anderson / NUS)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-bio-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                <span class="text-sm text-gray-600">Built BioInsights after functional medicine saved his wife</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team -->
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+              <div class="w-12 h-12 bg-bio-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span class="text-bio-600 font-bold text-sm">EC</span>
+              </div>
+              <div class="text-xs font-semibold text-gray-900">Erin Coletti</div>
+              <div class="text-xs text-gray-400">Co-Founder</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+              <div class="w-12 h-12 bg-bio-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span class="text-bio-600 font-bold text-sm">DM</span>
+              </div>
+              <div class="text-xs font-semibold text-gray-900">Dr. Dennis Mihale</div>
+              <div class="text-xs text-gray-400">CMO</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+              <div class="w-12 h-12 bg-bio-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <span class="text-bio-600 font-bold text-sm">MB</span>
+              </div>
+              <div class="text-xs font-semibold text-gray-900">Dr. Max B&uuml;gler</div>
+              <div class="text-xs text-gray-400">Tech Lead</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 md:py-28 gradient-hero text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to transform your practice?</h2>
+      <p class="text-blue-100/70 text-lg mb-8 max-w-2xl mx-auto">
+        Join 30+ providers delivering personalized, root-cause care with the clinical operating system built for functional medicine.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/bioinsights-bond/bioinsights-demonstration-call-clone" target="_blank"
+           class="bg-white text-bio-700 px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition shadow-xl">
+          Book a Demo
+        </a>
+        <a href="mailto:sales@bioinsights.com"
+           class="border border-white/30 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition">
+          Contact Sales
+        </a>
+      </div>
+      <p class="text-blue-200/40 text-sm mt-8">sales@bioinsights.com &middot; +1 919-875-8558</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-bio-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <img src="assets/logo.png" alt="BioInsights" class="h-8 mb-4 brightness-200">
+          <p class="text-blue-200/50 text-sm">The Clinical Operating System for Root-Cause Medicine&trade;</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-4 text-blue-100/80">Platform</h4>
+          <ul class="space-y-2 text-sm text-blue-200/50">
+            <li><a href="#platform" class="hover:text-white transition">How It Works</a></li>
+            <li><a href="#ai-trust" class="hover:text-white transition">AI & Trust</a></li>
+            <li><a href="#results" class="hover:text-white transition">Results</a></li>
+            <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-4 text-blue-100/80">Company</h4>
+          <ul class="space-y-2 text-sm text-blue-200/50">
+            <li><a href="#about" class="hover:text-white transition">About</a></li>
+            <li><a href="#thought-leaders" class="hover:text-white transition">For Thought Leaders</a></li>
+            <li><a href="https://www.bioinsights.com/tremors-study" class="hover:text-white transition">Research</a></li>
+            <li><a href="https://www.bioinsights.com/terms-of-service" class="hover:text-white transition">Terms of Service</a></li>
+            <li><a href="https://www.bioinsights.com/copy-of-terms-of-service" class="hover:text-white transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-4 text-blue-100/80">Connect</h4>
+          <ul class="space-y-2 text-sm text-blue-200/50">
+            <li><a href="mailto:sales@bioinsights.com" class="hover:text-white transition">sales@bioinsights.com</a></li>
+            <li><a href="tel:+19198758558" class="hover:text-white transition">+1 919-875-8558</a></li>
+            <li class="flex gap-4 pt-2">
+              <a href="https://www.facebook.com/profile.php?id=61550970356732" target="_blank" class="hover:text-white transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/bioinsights_com/" target="_blank" class="hover:text-white transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/bio-insights" target="_blank" class="hover:text-white transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-blue-200/40 text-sm">&copy; 2026 BioInsights. All rights reserved.</p>
+        <div class="flex items-center gap-6 mt-4 md:mt-0">
+          <span class="text-blue-200/40 text-xs">HIPAA Compliant</span>
+          <span class="text-blue-200/40 text-xs">SOC 2</span>
+          <span class="text-blue-200/40 text-xs">BAA Available</span>
+          <span class="text-blue-200/40 text-xs">US-Based Servers</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll for mobile menu close -->
+  <script>
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
